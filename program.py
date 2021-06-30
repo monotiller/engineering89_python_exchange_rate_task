@@ -2,14 +2,10 @@ import json
 
 from app.bureau_de_change import BureauDeChange
 
-rates = open("exchange_rates.json", "r")
-rates_data = json.load(rates)
+currency_base = str(input("What currency would you like as your base: "))
 
-print(BureauDeChange.exchange_base(rates_data))
-BureauDeChange.exchange_list(rates_data)
+BureauDeChange.exchange_list(currency_base)
 
-currency1 = str(input("What currency would you like to convert from: "))
-amount = int(input("...and how much of that currency do you have: "))
-currency2 = str(input("What currency would you like to convert to: "))
-
-BureauDeChange.exchange_convert(rates_data, currency1, amount, currency2)
+amount = int(input("How much would you like to change: "))
+currency_change = str(input("What currency would you like to change too: "))
+BureauDeChange.exchange_convert(currency_base, amount, currency_change)
