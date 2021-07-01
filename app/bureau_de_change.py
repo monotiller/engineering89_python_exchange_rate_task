@@ -3,10 +3,6 @@ import requests
 import secrets
 
 class BureauDeChange:
-    def __init__(self, currency_base):
-        self.currency_rates(currency_base)
-        self.currency_base = currency_base
-
     def exchange_list(currency_base):
         url = "https://v6.exchangerate-api.com/v6/" + secrets.exchange_api() + "/latest/" + currency_base.strip().upper()
         check_response_rates = requests.get(url)
